@@ -1,0 +1,414 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #FFFFFF;
+    text-align: center;
+}
+body::-webkit-scrollbar {
+    width: 12px; 
+}
+.player {
+    width: 300px;
+    max-height: 599px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1a1919;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #323333;
+    display: flex;
+    flex-direction: column;
+}
+
+.album-art {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+#vinyl {
+    width: 100%;
+    height: 100%;
+    animation: spin 4s linear infinite;
+}
+
+.track-info {
+    margin: 20px 0;
+    max-width: 100%; /* Evitar que o conteúdo extrapole a largura do player */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adicionar reticências se o conteúdo for muito longo */
+    white-space: nowrap; /* Evitar que o conteúdo quebre em várias linhas */
+}
+
+.controls button {
+    background-color: #1fdf65be;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.time-display {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+#current-time,
+#total-time {
+    color: #1fdf65c5;
+}
+
+.progress {
+    height: 10px;
+    background-color: #666;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+#progress-bar {
+    width: 0;
+    height: 100%;
+    background-color: #1ED760;
+    border-radius: 5px;
+}
+
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+li:hover {
+    text-decoration: underline;
+}
+
+.upload {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.upload-label {
+    background-color: #1ed75fa9;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.upload-label:hover {
+    background-color: #0b833b;
+}
+
+#file-input {
+    display: none;
+}
+
+#uploaded-song-title {
+    margin-top: 10px;
+    text-align: center;
+    color: #1ED760;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Estilize o container principal */
+.container {
+    margin-left: 270px; /* Ajuste a margem esquerda para deixar espaço para a seção da biblioteca */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 1000px;
+    padding: 25px;
+    background-color: #1d1c1c;
+    border-radius: 10px;
+    box-shadow: 0 0 1000px rgba(0, 0, 0, 0.356);
+    color: #FFFFFF;
+    overflow: hidden;
+}
+
+/*lista de reprodução */
+.playlist-container {
+    flex: 1;
+    padding: 0 20px;
+    margin-top:20px ;
+    max-height: 590px; 
+    overflow-y: auto; /* Adicione uma barra de rolagem vertical quando necessário */
+
+}
+
+
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    color:  #eceeebc2;
+    margin: 5px 0;
+    cursor: pointer;
+    transform: scale(0.90);
+    transition:transform 0.3s; 
+    
+}
+
+li:hover {
+    text-decoration: solid;
+    color: #05f082d0;
+}
+
+
+/* nome da música na lista de reprodução */
+li .song-title {
+    color: #1ED760;
+}
+
+/* linha horizontal entre os itens da lista de reprodução */
+li:not(:last-child) {
+    border-bottom: 1px solid #0f0f0f;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+#artist{
+    color: #666;
+}
+.playlist-part2 {
+    display: none;
+}
+
+.controls button.active {
+    background-color: #06f59580;
+   
+}
+.library-section {
+    margin-top: 10px;
+    background-color: #000000f1;
+    color: #FFFFFF;
+    width: 270px;
+    overflow-y: auto;
+    position: fixed;
+    border-top-right-radius: 9px;
+    border-bottom-right-radius: 9px;
+    left: 0;
+    top: 0;
+    height: 88%;
+    font-family: 'Arial', sans-serif;
+}
+
+.library-section h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.library-playlists {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.playlist-item {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    background-color: #252323;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; 
+    box-shadow: 0 0 3px #080808;
+}
+
+.playlist-item:hover {
+    background-color: #27b97f;
+    color: #121212;
+    transform: scale(0.95); 
+}
+
+.playlist-item img {
+    width: 60px;
+    height: 60px;
+    margin: auto;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.playlist-item h3 {
+    font-size: 16px;
+    margin: 0;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.playlist-item p {
+    font-size: 14px;
+    color: #888;
+}
+/*barra de rolagem na lista de reprodução */
+.playlist-container::-webkit-scrollbar {
+    width: 10px; 
+}
+
+.playlist-container::-webkit-scrollbar-track {
+    background: #121212; 
+    border-radius: 10px;
+}
+
+.playlist-container::-webkit-scrollbar-thumb {
+    background: #1ED760; /* Cor da alça da barra de rolagem */
+    border-radius: 10px;
+}
+
+.playlist-container::-webkit-scrollbar-thumb:hover {
+    background: #17b955; 
+}
+
+/*linha horizontal entre os itens da biblioteca */
+.library-playlists .playlist-item:not(:last-child) {
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+/* Estilo para a seção de criação de playlist*/
+.playlist-creation {
+    margin-left: 20px;
+    width: 70%;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.playlist-name, .playlist-description {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #333;
+    color: #FFFFFF;
+}
+
+.playlist-name::placeholder, .playlist-description::placeholder {
+    color: #888;
+}
+
+.create-playlist-btn {
+    background-color: #1ED760;
+    color: #FFFFFF;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.create-playlist-btn:hover {
+    background-color: #17b955;
+}
+h1, h5{
+    font-weight: 700;
+    color: #918e8e96;
+    margin-left: -90px;
+}
+.volume {
+    display: flex;
+    align-items: center;
+    margin: 1px 0;
+}
+
+#volume-slider {
+    width: 100%;
+    height: 8px;
+    background-color: #666;
+    border: none;
+    -webkit-appearance: none;
+    border-radius: 4px;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+#volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background-color: #1ED760;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.pequeno{
+    position: absolute;
+    top: 10px;
+    right: 150px;
+    width: 40px;
+    height: 40px;
+
+}
+.abaixo{
+   margin-top: 590px;
+    background-color: #070707f1;
+    color: #FFFFFF;
+    width: 270px;
+    overflow-y: auto;
+    position: fixed;
+    border-top-right-radius: 9px;
+    border-bottom-right-radius: 9px;
+    left: 0;
+    top: 0;
+    height: 400px;
+    font-family: 'Arial', sans-serif;}
+   
+    select {
+        position: absolute;
+        top: 10px;
+        right: 50px;
+        width: 100px;
+        height: 40px;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #252323;
+        border-radius: 5px;
+        background-color: #252323;
+        color: #FFFFFF;
+        appearance: none; 
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        cursor: pointer;
+    }
+    
+    
+    select option {
+        background-color: #1a1919;
+        color: #FFFFFF;
+        padding: 5px;
+    }
+    
+  
+    select:focus {
+        border: 1px solid #1ED760;
+        box-shadow: 0 0 5px #1ED760;
+    }

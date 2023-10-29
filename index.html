@@ -1,0 +1,71 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+        <div class="library-section">
+            <h1><small>♪♫</small> Biblioteca</h1>
+            <ul class="library-playlists">
+                <li class="playlist-item">
+                    <img src="https://i.scdn.co/image/ab67616d00001e0239021beae61ff9bfc5135b4b" alt="Playlist 1">
+                    <h3>Minhas Favoritas</h3>
+                    <p>Seus favoritos</p>
+                </li>
+                <li class="playlist-item">
+                    <img src="https://i1.sndcdn.com/artworks-j5rfLvE3DtQcZgit-zWG5pw-t500x500.jpg" alt="Playlist 2">
+                    <h3>Músicas Relaxantes</h3>
+                    <p>Playlist personalizada</p>
+                </li>   
+            </ul>
+        </div>
+        
+        <div class="abaixo">
+            <small><p>© Todos os direitos reservados<p></small> 
+        </div>
+        
+    <div class="container">
+        <div class="player">
+            <div class="album-art">
+                <img id="vinyl" src="https://cdn.pixabay.com/photo/2014/04/03/11/58/record-312730_1280.png" alt=Vinyl Record">
+            </div>
+            <div class="track-info">
+                <h2 id="song-title">Título</h2>
+                <h3 id="artist">Artista</h3>
+            </div>
+            <div class="controls">
+                <button id="shuffle-btn">⤮</button>
+            </div>
+            <div class="controls">
+                <button id="prev-btn">||◁</button>
+                <button id="play-pause-btn">▶</button>
+                <button id="next-btn">▷||</button>
+            </div>
+            <div class="time-display">
+                <span id="current-time">0:00</span> / <span id="total-time">0:00</span>
+            </div>
+            <div class="progress">
+                <div id="progress-bar"></div>
+            </div>
+            <div class="upload">
+                <label for="file-input" class="upload-label">Escolha uma música</label>
+                <input type="file" id="file-input" accept=".mp3" multiple />
+            </div>
+        </div>      
+        <img class="pequeno" src="https://cdn-icons-png.flaticon.com/128/2952/2952085.png">   
+        <select id="sort-select">
+            <option value="alphabetical">Ordem Alfabética</option>
+            <option value="date-added">Data de Adição</option>
+        </select> 
+            <div class="playlist-container">
+                <ul id="playlist">
+                  
+                </ul>
+                
+            </div>
+            
+        <audio id="audio" preload="auto"></audio>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+    </html>
